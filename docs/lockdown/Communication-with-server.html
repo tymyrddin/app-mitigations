@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Communication with server &mdash; Application mitigations</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Containers" href="Containers.html" />
+    <link rel="prev" title="Allow locked-down clients" href="Allow-locked-down-clients.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Application mitigations
+            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Lockdown environment</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="README.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Allow-locked-down-clients.html">Allow locked-down clients</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Communication with server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Containers.html">Containers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Hosted-repositories.html">Hosted repositories</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Coding</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../coding/README.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../coding/Authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../coding/Code-exec.html">Arbitrary code execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../coding/File-upload.html">File upload</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../coding/Input.html">Input validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../coding/Javascript.html">Javascript</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../coding/Local-file-inclusion.html">Local file inclusion (LFI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../coding/Output.html">Output validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../coding/Python.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../coding/Remote-file-inclusion.html">Remote file inclusion (RFI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../coding/XSS.html">XSS mitigations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Libraries and frameworks</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/README.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/JS-Frameworks.html">Javascript frameworks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/PyPI.html">PyPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/Python-Frameworks.html">Python frameworks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/npm.html">npm</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Protocols</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/README.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/TLS-SSL-PKI.html">TLS/SSL PKI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Databases</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../databases/README.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../databases/Access-control.html">Access control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../databases/Input-validation.html">Input validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../databases/parameterised.html">Parameterised statements</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Security testing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/README.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing/Architecture-and-design-validation.html">Architecture and design validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing/Code-reviews.html">Code reviews</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing/Configuration-analyses.html">Configuration analyses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing/Database-frangibility-scanning.html">Database frangibility scanning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing/Network-vulnerability-scanning.html">Network vulnerability scanning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing/Source-code-analysis.html">Source code analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing/Web-application-vulnerability-scanning.html">Web application vulnerability scanning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing/Web-service-scanning.html">Web service scanning</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">All mitigations</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://tymyrddin.github.io/mitigations/">Overview</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Application mitigations</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Communication with server</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/docs/lockdown/Communication-with-server.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="communication-with-server">
+<h1>Communication with server<a class="headerlink" href="#communication-with-server" title="Permalink to this heading"></a></h1>
+<p>Isolate communication between servers in the same account or team within the same region. Only services that are meant to be accessible by clients on the public internet need to be exposed on the public network.</p>
+<section id="making-connections">
+<h2>Making connections<a class="headerlink" href="#making-connections" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>With a VPN a private network can be mapped that only selected servers can see. Other applications can be configured to pass their traffic over the virtual interface that the VPN software exposes.</p></li>
+<li><p>With some server hosting services, Docker allows for setting up encrypted channels between containers, even when on other servers (within the local network).</p></li>
+<li><p>SSH tunnels are useful for allowing outside access to internal network resources and a great way to protect against connections being sniffed by adversaries.</p></li>
+<li><p>Sysadmins will need a way to get in if and when an ssh server fails. A minimal VNC with X.509 that combines standard VNC authentication with GNUTLS encryption and server identification can be set up.</p></li>
+<li><p>In some countries, proving that you connected to a particular server is enough to be prosecuted (or just arrested and questioned), but SSH doesn’t provide a native way to obfuscate to whom it connects. For that, a Tor proxy server can be set up and clients can SSH over the Tor Onion Service.</p></li>
+</ul>
+</section>
+<section id="further-considerations">
+<h2>Further considerations<a class="headerlink" href="#further-considerations" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Each server in an infrastructure can be configured to trust a centralised certificate authority. Any certificate that the authority signs is then implicitly trusted. If all applications and protocols support TLS/SSL encryption, the system can be encrypted without the overhead of a VPN tunnel (which also often uses SSL internally), at the expense of the non-trivial effort of configuring a certificate authority and setting up the rest of the public key infrastructure and managing the certificates (creating, signing, or revoking). Either way will probably work well until PKI (a system that is designed to create, manage, and validate certificates for identifying individuals and encrypting communication) is worth the extra effort (and associated costs).</p></li>
+<li><p>SSL or TLS certificates can be used to authenticate different entities to one another. After authentication, they can also be used to establish encrypted communication. This can prevent MITM attacks where an attacker imitates a server in an infrastructure to intercept traffic.</p></li>
+<li><p><a class="reference external" href="https://tymyrddin.github.io/e2ee-threat-model">E2EE is not sacred</a>. Protection from <a class="reference external" href="https://tymyrddin.github.io/attack-trees/docs/network/HTTPS-spoofing.html" title="(in Attack trees)"><span class="xref myst">SSL Spoofing</span></a> is required.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Allow-locked-down-clients.html" class="btn btn-neutral float-left" title="Allow locked-down clients" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Containers.html" class="btn btn-neutral float-right" title="Containers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+        <a href="https://unseen-uni.netlify.app/">Unseen University</a>, 2022
+
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

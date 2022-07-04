@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Authentication &mdash; Application mitigations</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Arbitrary code execution" href="Code-exec.html" />
+    <link rel="prev" title="Overview" href="README.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Application mitigations
+            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Lockdown environment</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../lockdown/README.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lockdown/Allow-locked-down-clients.html">Allow locked-down clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lockdown/Communication-with-server.html">Communication with server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lockdown/Containers.html">Containers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lockdown/Hosted-repositories.html">Hosted repositories</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Coding</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="README.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Code-exec.html">Arbitrary code execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="File-upload.html">File upload</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Input.html">Input validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Javascript.html">Javascript</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Local-file-inclusion.html">Local file inclusion (LFI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Output.html">Output validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Remote-file-inclusion.html">Remote file inclusion (RFI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XSS.html">XSS mitigations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Libraries and frameworks</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/README.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/JS-Frameworks.html">Javascript frameworks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/PyPI.html">PyPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/Python-Frameworks.html">Python frameworks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/npm.html">npm</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Protocols</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/README.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/TLS-SSL-PKI.html">TLS/SSL PKI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Databases</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../databases/README.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../databases/Access-control.html">Access control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../databases/Input-validation.html">Input validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../databases/parameterised.html">Parameterised statements</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Security testing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/README.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing/Architecture-and-design-validation.html">Architecture and design validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing/Code-reviews.html">Code reviews</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing/Configuration-analyses.html">Configuration analyses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing/Database-frangibility-scanning.html">Database frangibility scanning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing/Network-vulnerability-scanning.html">Network vulnerability scanning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing/Source-code-analysis.html">Source code analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing/Web-application-vulnerability-scanning.html">Web application vulnerability scanning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing/Web-service-scanning.html">Web service scanning</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">All mitigations</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://tymyrddin.github.io/mitigations/">Overview</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Application mitigations</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Authentication</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/docs/coding/Authentication.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="authentication">
+<h1>Authentication<a class="headerlink" href="#authentication" title="Permalink to this heading"></a></h1>
+<p>Authentication provides a way to collect credentials and determine the identity of a user. During authentication with a web application for example, //Web Agents// communicate with a //Policy Server// to determine the proper credentials that must be retrieved from the user who is requesting resources, potentially introducing a larger attack surface. IOW, the strength of the access control model to guard against unauthorised access depends on the robustness of the authentication scheme being used.</p>
+<p>Carefully implement an authentication mechanism to control which users are allowed to access which data. The keyword here is the “carefully”, so as to introduce as little new holes in the Emmental cheese as possible.</p>
+<ul class="simple">
+<li><p>Use <a class="reference internal" href="../protocols/TLS-SSL-PKI.html"><span class="doc std std-doc">SSL</span></a></p></li>
+<li><p>Always do the authentication process in a https session.</p></li>
+<li><p>Encrypt credentials in rest (when stored on the server) using hashing, MD5, etc.</p></li>
+<li><p>When the server sets a cookie on a browser, the <code class="docutils literal notranslate"><span class="pre">Http-Only</span></code> attribute can inform the browser not to allow access to the cookie from the DOM. This prevents client-side script-based attacks from accessing the sensitive data stored in the cookies.</p></li>
+<li><p>Use persistent and transient authentication methods (or a hidden field provided on every form) to aid protection against CSRF</p>
+<ul>
+<li><p>Tokenise client-server communication with an additional token not stored in cookies. Each form can have a separate token when the session is established and be sent with each request during the session.</p></li>
+<li><p>Implement session tokens and postfix the token in all requests raised by the user (Cross-site request forgery (CSRF))</p></li>
+<li><p>Do not store sensitive information such as tokens in browser storage.</p></li>
+<li><p>Make the token pseudo-random enough to make it computationally expensive for an attacker to guess.</p></li>
+<li><p>For highly sensitive operations, add a user interaction based protection (re-authentication or a one-time token) along with token based mitigation.</p></li>
+<li><p>Terminate idle sessions (Cross-site request forgery (CSRF))</p></li>
+</ul>
+</li>
+<li><p>Sandbox applications so that adversaries will need to use two exploits: one for the vulnerable browser or add-on/extension and another to break out of the sandbox.</p></li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="README.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Code-exec.html" class="btn btn-neutral float-right" title="Arbitrary code execution" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+        <a href="https://unseen-uni.netlify.app/">Unseen University</a>, 2022
+
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>
